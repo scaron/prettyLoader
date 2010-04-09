@@ -1,0 +1,23 @@
+prettyLoader v1.0
+© Copyright, Stephane Caron
+http://www.no-margin-for-errors.com
+
+
+============================= Released under =============================
+http://creativecommons.org/licenses/by/2.5/
+
+
+============================ More information ============================
+http://www.no-margin-for-errors.com/projects/prettyLoader/
+
+
+============================== Description ===============================
+
+prettyLoader is a small (less than 4kb uncompressed) jQuery plugin that
+aim at making your life easier regarding ajax loader display.
+
+You know, when you do an ajax call and you never quite know where to
+position your loader.
+
+Please refer to http://www.no-margin-for-errors.com/projects/prettyLoader/
+for all the details on how to use.
