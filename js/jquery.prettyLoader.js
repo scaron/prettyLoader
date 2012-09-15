@@ -72,7 +72,9 @@
 
 			$(document).bind('click',$.prettyLoader.positionLoader);
 			$(document).bind('mousemove',$.prettyLoader.positionLoader);
-			$(window).scroll(function(){ scrollPos = _getScroll(); $(document).triggerHandler('mousemove'); });
+			
+			$.prettyLoader.scrollHandler = function(){ scrollPos = _getScroll(); $(document).triggerHandler('mousemove'); };
+			$(window).scroll($.prettyLoader.scrollHandler);
 			
 			delay = (delay) ? delay : settings.delay;
 			
@@ -84,7 +86,7 @@
 		$.prettyLoader.hide = function(){
 			$(document).unbind('click',$.prettyLoader.positionLoader);
 			$(document).unbind('mousemove',$.prettyLoader.positionLoader);
-			$(window).unbind('scroll');
+			$(window).unbind('scroll',$.prettyLoader.scrollHandler);
 						
 			$('.prettyLoader').fadeOut(settings.animation_speed,function(){
 				$(this).remove();
