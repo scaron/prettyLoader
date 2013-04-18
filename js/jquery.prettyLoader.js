@@ -33,8 +33,8 @@
       		e = e ? e : window.event;
 
 			// Set the cursor pos only if the even is returned by the browser.
-			cur_x = (e.clientX) ? e.clientX : cur_x;
-			cur_y = (e.clientY) ? e.clientY : cur_y;
+			cur_x = (e.clientX) ? e.clientX : (typeof cur_x==='undefined'?0:cur_x);
+			cur_y = (e.clientY) ? e.clientY : (typeof cur_y==='undefined'?0:cur_y);
 
 			left_pos = cur_x + settings.offset_left + scrollPos['scrollLeft'];
 			top_pos = cur_y + settings.offset_top + scrollPos['scrollTop'];
