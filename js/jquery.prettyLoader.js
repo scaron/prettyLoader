@@ -13,7 +13,7 @@
 			animation_speed: 'fast', /* fast/normal/slow/integer */
 			bind_to_ajax: true, /* true/false */
 			delay: false, /* false OR time in milliseconds (ms) */
-			loader: '/images/prettyLoader/ajax-loader.gif', /* Path to your loader gif */
+			loader: 'images/prettyLoader/ajax-loader.gif', /* Path to your loader gif */
 			offset_top: 13, /* integer */
 			offset_left: 10 /* integer */
 		}, settings);
@@ -22,9 +22,10 @@
 
 		imgLoader = new Image();
 		imgLoader.onerror = function(){
-			alert('Preloader image cannot be loaded. Make sure the path is correct in the settings and that the image is reachable.');
+			console.log('Preloader image cannot be loaded. Make sure the path is correct in the settings and that the image is reachable.');
+            console.log(settings.loader);
 		};
-		imgLoader.src = settings.loader;
+		var imgLoader.src = settings.loader;
 		
 		if(settings.bind_to_ajax)
 			jQuery(document).ajaxStart(function(){ $.prettyLoader.show() }).ajaxStop(function(){ $.prettyLoader.hide() });
@@ -49,7 +50,7 @@
 			if($('.prettyLoader').size() > 0) return;
 			
 			// Get the scroll position
-			scrollPos = _getScroll();
+			var scrollPos = _getScroll();
 			
 			// Build the loader container
 			$('<div></div>')
@@ -58,10 +59,6 @@
 				.appendTo('body')
 				.hide();
 			
-			// No png for IE6...sadly :(
-			if($.browser.msie && $.browser.version == 6)
-				$('.prettyLoader').addClass('pl_ie6');
-
 			// Build the loader image
 			$('<img />')
 				.attr('src',settings.loader)
